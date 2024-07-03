@@ -1,3 +1,13 @@
+type Error = variant { TodoNotFound };
+type Result = variant { Ok : Todo; Err : Error };
+type Result_1 = variant { Ok; Err : Error };
+type Todo = record { id : nat32; status : TodoStatus; "text" : text };
+type TodoStatus = variant { Completed; Pending };
 service : {
-    "greet": (text) -> (text) query;
+  add_new_todo : (text) -> (nat32);
+  delete_todo : (nat32) -> ();
+  get_all_todos : (opt nat32, opt nat32) -> (vec Todo) query;
+  get_todo : (nat32) -> (Result) query;
+  update_todo : (nat32, text) -> (Result_1);
+  update_todo_status : (nat32, TodoStatus) -> (Result_1);
 }
