@@ -1,5 +1,6 @@
 // Store the all required states here
 
+use candid::Principal;
 use ic_stable_structures::memory_manager::{MemoryId, MemoryManager, VirtualMemory};
 use ic_stable_structures::{DefaultMemoryImpl, StableBTreeMap, StableCell};
 use std::cell::RefCell;
@@ -20,7 +21,7 @@ thread_local! {
     );
 
     /// Store for todos, Mapped as [todo_id -> Todo]
-    pub(crate) static TODOS: RefCell<StableBTreeMap<u32,Todo, Memory>> = RefCell::new(
+    pub(crate) static TODOS: RefCell<StableBTreeMap<(Principal,u32),Todo, Memory>> = RefCell::new(
         StableBTreeMap::init(
             MEMORY_MANAGER.with(|m| m.borrow().get(MemoryId::new(1))),
         )
