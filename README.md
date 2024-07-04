@@ -1,4 +1,5 @@
 # `todo`
+Mainnet todolist url: https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=ay7nk-diaaa-aaaak-qionq-cai
 
 Welcome to your new `todo` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
 

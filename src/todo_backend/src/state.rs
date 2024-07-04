@@ -20,8 +20,8 @@ thread_local! {
         ).unwrap()
     );
 
-    /// Store for todos, Mapped as [todo_id -> Todo]
-    pub(crate) static TODOS: RefCell<StableBTreeMap<(Principal,u32),Todo, Memory>> = RefCell::new(
+    /// Store for user's todos, Mapped as [(Principal,todo_id) -> Todo]
+    pub(crate) static USER_TODOS: RefCell<StableBTreeMap<(Principal,u32),Todo, Memory>> = RefCell::new(
         StableBTreeMap::init(
             MEMORY_MANAGER.with(|m| m.borrow().get(MemoryId::new(1))),
         )
